@@ -26,18 +26,7 @@ export class CourseBusiness {
     public createCourse = async (input: any) => {
         const { id, name, lessons } = input
 
-        if (typeof id !== "string") {
-            throw new BadRequestError("'id' deve ser string")
-        }
-
-        if (typeof name !== "string") {
-            throw new BadRequestError("'name' deve ser string")
-        }
-
-        if (typeof lessons !== "number") {
-            throw new BadRequestError("'lessons' deve ser number")
-        }
-
+        
         if (name.length < 2) {
             throw new BadRequestError("'name' deve possuir pelo menos 2 caracteres")
         }

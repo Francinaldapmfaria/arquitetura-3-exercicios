@@ -2,10 +2,12 @@ import express from "express"
 import { CourseBusiness } from "../business/CourseBusiness"
 import { CourseController } from "../controller/CourseController"
 import { CourseDatabase } from "../database/CourseDatabase"
+import { CourseDTO } from "../dto/CourseDTO"
 
 export const courseRouter = express.Router()
 
 const courseController = new CourseController(
+    new CourseDTO(),
     new CourseBusiness( 
         new CourseDatabase()
     )
