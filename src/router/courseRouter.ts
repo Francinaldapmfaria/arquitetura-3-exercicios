@@ -1,11 +1,14 @@
 import express from "express"
 import { CourseBusiness } from "../business/CourseBusiness"
 import { CourseController } from "../controller/CourseController"
+import { CourseDatabase } from "../database/CourseDatabase"
 
 export const courseRouter = express.Router()
 
 const courseController = new CourseController(
-    new CourseBusiness()
+    new CourseBusiness( 
+        new CourseDatabase()
+    )
 )
 
 courseRouter.get("/", courseController.getCourses)
